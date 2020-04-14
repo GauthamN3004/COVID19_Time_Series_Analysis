@@ -110,13 +110,13 @@ print_result(data,country_list,country_index,"Cases")
 flag=1
 #animating COVID-19 death
 #reading the data for deaths
-df=pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
-df.drop(columns=["Province/State","Lat","Long"],inplace=True)
-df=df.groupby(["Country/Region"],as_index=False).sum()
-df.loc[df["Country/Region"]=="US","Country/Region"]="United States"
-countries=list(df["Country/Region"])
+df2=pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
+df2.drop(columns=["Province/State","Lat","Long"],inplace=True)
+df2=df2.groupby(["Country/Region"],as_index=False).sum()
+df2.loc[df2["Country/Region"]=="US","Country/Region"]="United States"
+countries=list(df2["Country/Region"])
 
-data=transform(df)
+data=transform(df2)
 
 xval=[]
 y1=[]
@@ -136,7 +136,6 @@ print_result(data,country_list,country_index,"Deaths")
 
 print("Milestones (India)")
 india = df.loc[df["Country/Region"] == "India"]
-print(india)
 max_case= int(india.iloc[0,-1])
 case_list = [1,10]
 n=1
@@ -163,4 +162,4 @@ while(i<total_columns):
     i+=1
 
 
-input("press the enter key to exit!")
+end=input("press the enter key to exit!")
