@@ -134,4 +134,33 @@ ani=FuncAnimation(plt.gcf(),animate_total,interval=150)
 plt.show()
 print_result(data,country_list,country_index,"Deaths")
 
+print("Milestones (India)")
+india = df.loc[df["Country/Region"] == "India"]
+print(india)
+max_case= int(india.iloc[0,-1])
+case_list = [1,10]
+n=1
+while n<=max_case:
+	if(len(case_list)-1)%3 ==2:
+		n=int(case_list[len(case_list)-1]*2.5)
+		case_list.append(n)
+	else:
+		n=case_list[len(case_list)-1]*2
+		case_list.append(n)
+
+total_columns = len(list(india.columns))
+cols = list(india.columns)
+i=1
+j=0
+months = ["Unknown","January","Febuary","March","April","May","June","July","August","September","October","November","December"]
+n=case_list[j]
+while(i<total_columns):
+    if(india.iloc[0,i]>=n):
+        date = cols[i].split("/")
+        print("case %-7d"%case_list[j],":  ",date[1],months[int(date[0])],date[2])
+        j+=1
+        n=case_list[j]
+    i+=1
+
+
 input("press the enter key to exit!")
