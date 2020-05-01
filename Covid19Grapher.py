@@ -1,7 +1,9 @@
 print("FETCHING DATA  ...")
 import covid_cases as cc
 import milestone as ms
+import choropleth_map as cm
 import covid_deaths as cd
+import warnings
 
 countries = cc.c_list()
 print("DATA FETCHED !")
@@ -39,7 +41,8 @@ while(True):
     elif (opt == 3):
         ms.print_milestone()
     elif (opt == 4):
-        print("opt = 4")
+        cm.choropleth_map()
+        warnings.simplefilter("ignore")
     else:
         print("\nTHANK YOU FOR USING THE COVID-19 GRAPHER !")
         break

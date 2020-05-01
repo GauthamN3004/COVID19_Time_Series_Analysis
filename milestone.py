@@ -7,23 +7,9 @@ df = pd.read_csv(url)
 df.drop(columns=["Province/State","Lat","Long"],inplace=True)
 df=df.groupby(["Country/Region"],as_index=False).sum()
 
-def transform(df):
-    dates = list(df.columns)[1:]
-    data = df.transpose()
-    headers = list(data.iloc[0, :])
-    data = data.iloc[1:, :]
-    data.columns = headers
-    data.insert(0, "dates", dates, True)
-    data.reset_index(inplace=True, drop=True)
-    return data
-
-# df=transform(df)
-
 def print_milestone():
     print("Milestones (India)")
-    print(df.columns)
     india = df.loc[df["Country/Region"] == "India"]
-    print("done")
     max_case = int(india.iloc[0, -1])
     case_list = [1, 10]
     n = 1
@@ -51,3 +37,5 @@ def print_milestone():
             j += 1
             n = case_list[j]
         i += 1
+
+    return
