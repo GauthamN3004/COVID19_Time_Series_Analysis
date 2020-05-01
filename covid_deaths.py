@@ -5,18 +5,14 @@ from itertools import count
 import math
 
 #fetching data
-print("FETCHING DATA  ...")
-url="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
+url="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
 df = pd.read_csv(url)
 df.drop(columns=["Province/State","Lat","Long"],inplace=True)
 df=df.groupby(["Country/Region"],as_index=False).sum()
 df.loc[df["Country/Region"]=="US","Country/Region"]="United States"
 countries=list(df["Country/Region"])
+print("DATA FETCHED !")
 
-
-#function to return the set of countries
-def c_list():
-    return countries
 
 def print_result(data,c_list,c_index,str):
     date = data.iloc[-1, 0]
@@ -71,11 +67,11 @@ def animate_total(i):
     plt.plot(x_data, y5, label=country_list[4])
     plt.legend()
     plt.xlabel("Date")
-    plt.title("Total Number of Cases Vs Time")
-    plt.ylabel("Total Number of Cases")
+    plt.title("Total Number of Deaths Vs Time")
+    plt.ylabel("Total Number of Deaths")
 
 
-def plot_graph_cases(ci,cl):
+def plot_graph_deaths(ci,cl):
     global country_index,country_list,xval,y1,y2,y3,y4,y5,x_data,index
     xval = []
     y1 = []
