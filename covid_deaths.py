@@ -11,7 +11,6 @@ df.drop(columns=["Province/State","Lat","Long"],inplace=True)
 df=df.groupby(["Country/Region"],as_index=False).sum()
 df.loc[df["Country/Region"]=="US","Country/Region"]="United States"
 countries=list(df["Country/Region"])
-print("DATA FETCHED !")
 
 
 def print_result(data,c_list,c_index,str):

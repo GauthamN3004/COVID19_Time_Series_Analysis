@@ -1,9 +1,10 @@
+print("FETCHING DATA  ...")
 import covid_cases as cc
 import milestone as ms
 import covid_deaths as cd
 
 countries = cc.c_list()
-
+print("DATA FETCHED !")
 #request input for countries
 print("enter the countries to graph (any 5 valid country input): ")
 c=""

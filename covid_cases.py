@@ -5,7 +5,7 @@ from itertools import count
 import math
 
 #fetching data
-print("FETCHING DATA  ...")
+
 url="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
 df = pd.read_csv(url)
 df.drop(columns=["Province/State","Lat","Long"],inplace=True)
