@@ -7,6 +7,8 @@ import numpy as np
 from urllib.request import urlopen
 import json
 from IPython.display import display
+import os
+import webbrowser
 with urlopen('https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DV0101EN/labs/Data_Files/world_countries.json') as response:
     data = json.load(response)
 
@@ -47,6 +49,8 @@ def choropleth_map():
         bins=[0, 0.8, 1.6, 2.4, 3.2, 4.0, 4.8, 5.6, 6.4],
         legend_name='log(number of cases) base 9'
     )
-    display(world_map)
     warnings.simplefilter("ignore")
+    filepath = 'D:/Desktop/GitHub/COVID19_grapher/map.html'
+    world_map.save(filepath)
+    webbrowser.open('file://' + filepath)
     return
