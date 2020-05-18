@@ -32,7 +32,7 @@ while True:
         print("No Such Country or Country Mis-spelt! Re-enter !")
 
 while(True):
-    print("\nEnter the option: \n1 - Total Deaths\n2 - Total Cases\n3 - Milestones India\n4 - World Choropleth Map\n5 - Exit :")
+    print("\nEnter the option: \n1 - Total Cases\n2 - Total Deaths\n3 - Milestones India\n4 - World Choropleth Map\n5 - Exit :")
     opt = int(input())
     if (opt == 1):
         cc.plot_graph_cases(country_index, country_list)
