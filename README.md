@@ -3,21 +3,21 @@ a python program to plot a moving graph of the total number of cases and deaths 
 
 ### requirements
 * pandas
-'''
+```
 pip install pandas
-'''
+```
 * matplotlib
-'''
+```
 pip install matplotlib
-'''
+```
 * folium
-'''
+```
 pip install folium
-'''
+```
 * json
-'''
+```
 pip install json
-'''
+```
 
 ### How it works
 It fetches data from the John Hopkins Unversity github repository for COVID-19 cases and uses matplotlib to plot a moving graph of the increase in the number of cases and deaths.
